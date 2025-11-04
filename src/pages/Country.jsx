@@ -9,7 +9,7 @@ const Country = () => {
    const [ countries , setCountries ] = useState([])
 
    const [search , setSearch] = useState()
-   const [filter , setFilter] = useState()
+   const [filter , setFilter] = useState("all")
 
   useEffect( ()=>{
       startTransition( async()=>{
@@ -20,6 +20,11 @@ const Country = () => {
   }, [] )
 
   if( isPending) return <h1>Loading....</h1>
+
+  // main logic for the program 
+  countries.filter( (country )=>{ })
+
+
   return <section className= "country-section">
     <SearchFilter 
     search = { search} 
