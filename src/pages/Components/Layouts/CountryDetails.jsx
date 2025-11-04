@@ -7,6 +7,9 @@ const CountryDetails = () => {
   const [isPending, startTransition] = useTransition();
   const [country, setCountry] = useState(null);
 
+  
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
