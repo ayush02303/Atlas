@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchFilter = ({search , setSearch , filter , setFilter}) => {
+const SearchFilter = ({search , setSearch , filter , setFilter , countries , setCountries}) => {
 
     const handleInputChange = (event)=>{
         event.preventDefault()
@@ -11,6 +11,14 @@ const SearchFilter = ({search , setSearch , filter , setFilter}) => {
         setFilter(event.target.value)
 
     }
+     const sortCountries = (value) => {
+    const sortCountry = [...countries].sort((a, b) => {
+      return value === "asc"
+        ? a.name.common.localeCompare(b.name.common)
+        : b.name.common.localeCompare(a.name.common);
+    });
+    setCountries(sortCountry);
+  };
   return <section className="section-searchFilter container">
 
     <input 
@@ -18,6 +26,13 @@ const SearchFilter = ({search , setSearch , filter , setFilter}) => {
     placeholder='search' 
     value={search} 
     onChange={handleInputChange}/>
+
+    <div>
+        <button onClick={()=> sortCountries("asc")}>Asc</button>
+    </div>
+    <div>
+         <button onClick={()=> sortCountries("des")}>Des</button>
+    </div>
 
      <select
           className="select-section"
